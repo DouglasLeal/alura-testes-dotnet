@@ -1,12 +1,14 @@
+using Alura.Estacionamento.Alura.Estacionamento.Modelos;
 using Alura.Estacionamento.Modelos;
 
 namespace Alura.Estacionamento.Testes
 {
     public class VeiculoTestes
     {
-        [Fact(DisplayName = "Teste nº 1")]
+        //[Fact(DisplayName = "Teste nº 1")]
+        [Fact]
         [Trait("Funcionalidade", "Acelerar")]
-        public void TestaVeiculoAcelerar()
+        public void TestaVeiculoAcelerarComParametro10()
         {
             //Arrange
             var veiculo = new Veiculo();
@@ -18,8 +20,9 @@ namespace Alura.Estacionamento.Testes
             Assert.Equal(100, veiculo.VelocidadeAtual);
         }
 
-        [Fact(DisplayName = "Teste nº 2")]
-        public void TestaVeiculoFrear()
+        //[Fact(DisplayName = "Teste nº 2")]
+        [Fact]
+        public void TestaVeiculoFrearComParametro10()
         {
             var veiculo = new Veiculo();
 
@@ -29,9 +32,30 @@ namespace Alura.Estacionamento.Testes
         }
 
         [Fact(DisplayName = "Teste nº 3", Skip = "Teste não implementado")]
-        public void ValidaNomeProprietario()
+        public void ValidaNomeDoProprietarioDoVeiculo()
         {
             
+        }
+
+        [Fact]
+        public void VerificaFichaDeInformacaoDoVeiculo()
+        {
+            //Arrange
+            var estacionamento = new Patio();
+            var veiculo = new Veiculo
+            {
+                Proprietario = "André Silva",
+                Tipo = TipoVeiculo.Automovel,
+                Cor = "Verde",
+                Modelo = "Fusca",
+                Placa = "ASD-9999"
+            };
+
+            //Act
+            string dados = veiculo.ToString();
+
+            //Assert
+            Assert.Contains("Tipo do Veículo: Automovel", dados);
         }
     }
 }
