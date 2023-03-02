@@ -5,11 +5,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Xunit.Abstractions;
 
 namespace Alura.Estacionamento.Testes
 {
     public class PatioTestes
     {
+        private Veiculo veiculo;
+        public ITestOutputHelper saidaConsoleTeste;
+
+        public PatioTestes(ITestOutputHelper consoleTeste)
+        {
+            veiculo = new Veiculo();
+            saidaConsoleTeste = consoleTeste;
+            saidaConsoleTeste.WriteLine("Construtor invocado");
+        }
+
         [Fact]
         public void ValidaFaturamentoDoEstacionamentoComUmVeiculo()
         {

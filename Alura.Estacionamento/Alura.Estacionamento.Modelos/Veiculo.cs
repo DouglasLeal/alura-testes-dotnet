@@ -110,6 +110,10 @@ namespace Alura.Estacionamento.Modelos
 
         public Veiculo(string proprietario)
         {
+            if(proprietario.Length < 3)
+            {
+                throw new FormatException("O nome precisa ter no mínimo 3 caracteres.");
+            }
            Proprietario = proprietario;
         }
 
