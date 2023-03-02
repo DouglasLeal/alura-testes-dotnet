@@ -11,8 +11,13 @@ namespace Alura.Estacionamento.Modelos
         private string _placa;
         private string _proprietario;
         private TipoVeiculo _tipo;
-     
-        //Propriedades   
+        private string _ticket;
+
+        //Propriedades
+        //
+
+        public string IdTicket { get; set; }
+        public string Ticket { get => _ticket; set => _ticket = value; }
 
         public string Placa
         {
